@@ -3,10 +3,7 @@ html {
 }
 body {
       text-align: center; /* Centers text horizontally */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
+     
 
 h1 {
   color: white;
