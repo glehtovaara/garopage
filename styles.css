@@ -3,14 +3,17 @@ font-family: Courier New, Monospace;
 }
 
 h1 {
+font-size: 36px;
 color: white;
 text-align: center;
 }
 h2 {
+font-size: 28px;
 color: white;
 text-align: Left;
 }
 h3 {
+font-size: 20px;
 color: white;
 text-align: left;
 }
