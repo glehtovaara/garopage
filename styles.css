@@ -1,10 +1,25 @@
+html, body {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  color: white;
+  text-align: center;
+}
+
 a.button {
-  --main-color: white;
-  --main-bg-color: rgba(0, 0, 255, 0.9);
-  --pattern-color: rgba(46, 213, 116, 0.9);
   --box-size: 6px;
   --grid-columns: 10;
   --grid-rows: 2;
+  --grid-color: #00f; /* blue grid color */
 
   position: relative;
   display: inline-flex;
@@ -15,38 +30,28 @@ a.button {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  color: var(--main-color);
+  color: white;
   text-decoration: none;
-  font-family: Courier New, Monospace;
-  border: none;
+  font-family: Courier New, monospace;
+  background: radial-gradient(circle, rgba(0, 0, 255, 0.9) 0%, transparent 95%);
+  border: 1px solid white;
   border-radius: 8px;
-  background: radial-gradient(
-      circle,
-      var(--main-bg-color) 0%,
-      rgba(0, 0, 0, 0) 95%
-    ),
-    linear-gradient(var(--pattern-color) 1px, transparent 1px),
-    linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
-  background-size: cover, 15px 15px, 15px 15px;
-  background-position: center center;
   overflow: hidden;
+  cursor: pointer;
   z-index: 0;
-  filter: hue-rotate(0deg);
 }
 
-/* White text always */
-a.button::after {
-  content: attr(data-text);
-  position: absolute;
+/* Center the text */
+a.button span.text {
+  position: relative;
   z-index: 2;
   color: white;
-  font-weight: 700;
-  font-size: 1.2rem;
+  text-align: center;
   pointer-events: none;
 }
 
-/* Grid layer on top of button */
-a.button .grid-box {
+/* Grid container */
+a.button .grid-boxes {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,31 +65,35 @@ a.button .grid-box {
   z-index: 1;
 }
 
-/* Each animated box */
-a.button .grid-box span {
+/* Each box */
+a.button .grid-boxes span {
   width: var(--box-size);
   height: var(--box-size);
-  background: #0ff;
+  background: var(--grid-color);
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
   transform: scale(1);
 }
 
 /* Extra boxes hidden initially */
-a.button .grid-box span:nth-child(n+21) {
+a.button .grid-boxes span:nth-child(n+21) {
   opacity: 0;
   transform: scale(0);
 }
 
-/* Fade and animation on hover */
-a.button:hover .grid-box span {
+/* On hover: shrink all, reveal hidden */
+a.button:hover .grid-boxes span {
   transform: scale(0.6);
 }
 
-a.button:hover .grid-box span:nth-child(n+21) {
+a.button:hover .grid-boxes span:nth-child(n+21) {
   opacity: 1;
   transform: scale(0.6);
   animation: fadeIn 0.3s ease forwards;
+}
+
+a.button:active {
+  filter: hue-rotate(250deg);
 }
 
 /* Fade left and right edges */
@@ -101,17 +110,12 @@ a.button::after {
 
 a.button::before {
   left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
 }
 
 a.button::after {
   right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
-}
-
-/* Click color change */
-a.button:active {
-  filter: hue-rotate(250deg);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
 }
 
 @keyframes fadeIn {
