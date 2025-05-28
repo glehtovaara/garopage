@@ -36,8 +36,8 @@ linear-gradient(var(--pattern-color) 1px, transparent 1px),
 linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
 background-size:
 cover,
-15px 15px,
-15px 15px;
+25px 25px,
+25px 25px;
 background-position:
 center center,
 center center,
@@ -59,8 +59,8 @@ transition: background-size 0.2s ease-in-out;
 .button:hover {
 background-size:
 cover,
-10px 10px,
-10px 10px;
+25px 25px,
+25px 25px;
 }
 .button:active {
 filter: hue-rotate(250deg);
