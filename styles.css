@@ -19,8 +19,8 @@ h3 {
 a.button {
   /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
   /* with hue-rotate color can be changed */
-  --main-color: rgb(46, 213, 115);
-  --main-bg-color: rgba(46, 213, 116, 0.36);
+  --main-color: rgb(0, 0, 255);
+  --main-bg-color: rgba(0, 0, 255, 0.073);
   --pattern-color: rgba(46, 213, 116, 0.073);
 
   /* change this rotation value */
