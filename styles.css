@@ -8,11 +8,11 @@ text-align: center;
 }
 h2 {
 color: white;
-text-align: Left;
+text-align: center;
 }
 h3 {
 color: white;
-text-align: left;
+text-align: center;
 }
 a.button {
 /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
