@@ -7,10 +7,7 @@ a.button {
   --grid-rows: 2;
 
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: inline-block;
   padding: 1rem 2rem;
   font-size: 1.2rem;
   font-weight: 700;
@@ -18,7 +15,9 @@ a.button {
   letter-spacing: 0.1rem;
   color: white;
   text-decoration: none;
-  font-family: Courier New, Monospace;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+
   background: radial-gradient(
       circle,
       var(--main-bg-color) 0%,
@@ -28,20 +27,26 @@ a.button {
     linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
   background-size: cover, 15px 15px, 15px 15px;
   background-position: center center;
-  border-image: radial-gradient(
-      circle,
-      var(--main-color) 0%,
-      rgba(0, 0, 0, 0) 100%
-    ) 1;
-  border-width: 1px 0;
-  border-style: solid;
+  border: 1px solid var(--main-color);
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
   z-index: 0;
+  vertical-align: middle;
 }
 
-/* Add this for blue animated grid on top */
+/* Ensure text is white and centered */
+a.button span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Grid effect layer */
 a.button .grid-boxes {
   position: absolute;
   top: 0;
@@ -59,17 +64,19 @@ a.button .grid-boxes {
 a.button .grid-boxes span {
   width: var(--box-size);
   height: var(--box-size);
-  background: #00f; /* blue */
+  background: #00f;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
   transform: scale(1);
 }
 
+/* Hide some boxes until hover */
 a.button .grid-boxes span:nth-child(n+21) {
   opacity: 0;
   transform: scale(0);
 }
 
+/* On hover: shrink and reveal */
 a.button:hover .grid-boxes span {
   transform: scale(0.6);
 }
@@ -80,14 +87,11 @@ a.button:hover .grid-boxes span:nth-child(n+21) {
   animation: fadeIn 0.3s ease forwards;
 }
 
-/* Button text stays white */
-a.button span {
-  position: relative;
-  z-index: 2;
-  color: white;
+a.button:active {
+  filter: hue-rotate(250deg);
 }
 
-/* Fade sides */
+/* Edge fade */
 a.button::before,
 a.button::after {
   content: "";
@@ -107,10 +111,6 @@ a.button::before {
 a.button::after {
   right: 0;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
-}
-
-a.button:active {
-  filter: hue-rotate(250deg);
 }
 
 @keyframes fadeIn {
