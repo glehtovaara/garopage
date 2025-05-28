@@ -8,11 +8,11 @@ text-align: center;
 }
 h2 {
 color: white;
-text-align: center;
+text-align: Left;
 }
 h3 {
 color: white;
-text-align: center;
+text-align: left;
 }
 a.button {
 /* in scss with just one variable i can change opacity with rgba(variable, opacity) but in css it's not possible so i have used three seperate variables */
@@ -36,8 +36,8 @@ linear-gradient(var(--pattern-color) 1px, transparent 1px),
 linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
 background-size:
 cover,
-25px 25px,
-25px 25px;
+15px 15px,
+15px 15px;
 background-position:
 center center,
 center center,
@@ -59,8 +59,8 @@ transition: background-size 0.2s ease-in-out;
 .button:hover {
 background-size:
 cover,
-25px 25px,
-25px 25px;
+10px 10px,
+10px 10px;
 }
 .button:active {
 filter: hue-rotate(250deg);
