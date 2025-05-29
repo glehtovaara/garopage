@@ -18,11 +18,10 @@ color: white;
 text-align: left;
 }
 
+<a href="#" class="button">Click Me</a>
 
-<a href="#" class="rainbow-button">Click Me</a>
 
-<style>
-.rainbow-button {
+.button {
   display: inline-block;
   padding: 1rem 2.2rem;
   font-size: 1.1rem;
@@ -42,7 +41,7 @@ text-align: left;
   user-select: none;
 }
 
-.rainbow-button:hover {
+.button:hover {
   background-position: right center;
   transform: translateY(-3px);
   box-shadow:
@@ -51,7 +50,7 @@ text-align: left;
   border-color: rgba(255, 255, 255, 0.6);
 }
 
-.rainbow-button:active {
+.button:active {
   transform: translateY(2px);
   box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.3),
@@ -64,4 +63,5 @@ text-align: left;
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-</style>
+
+
