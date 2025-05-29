@@ -18,33 +18,45 @@ color: white;
 text-align: left;
 }
 
-.button {
+
+<a href="#" class="rainbow-button">Click Me</a>
+
+<style>
+.rainbow-button {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 2.2rem;
   font-size: 1.1rem;
   font-weight: bold;
   color: white;
   text-decoration: none;
-  border: 3px solid transparent;
-  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
   background: linear-gradient(145deg, #ff416c, #ff4b2b, #f9d423, #00c9ff, #a18cd1, #f953c6, #ff416c);
   background-size: 300% 300%;
   box-shadow:
-    0 8px 15px rgba(0, 0, 0, 0.3),
-    inset 0 -4px 8px rgba(255, 255, 255, 0.1);
-  transition: all 0.4s ease;
-  animation: rainbowMove 5s linear infinite;
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    inset 0 -3px 6px rgba(255, 255, 255, 0.15);
+  transition: all 0.25s ease;
+  animation: rainbowMove 6s linear infinite;
   cursor: pointer;
+  user-select: none;
 }
 
-.button:hover {
+.rainbow-button:hover {
   background-position: right center;
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-3px);
   box-shadow:
-    0 12px 25px rgba(0, 0, 0, 0.3),
-    0 0 15px rgba(255, 255, 255, 0.6),
-    inset 0 0 8px rgba(255, 255, 255, 0.2);
+    0 12px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.6);
+}
+
+.rainbow-button:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 @keyframes rainbowMove {
@@ -52,3 +64,4 @@ text-align: left;
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+</style>
